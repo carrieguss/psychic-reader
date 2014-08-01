@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */
+		input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+
+			* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+			body {
+				font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-weight: 300;
+			}
+
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+
+	<h1 id="css-grid-systems">CSS Grid Systems</h1>
+
+	<p>Within graphic design circles, a grid system is used to structure content and create organize elements on a page.  It is used to create columns that span the page at different widths, and maintain equal margins between.</p>
+
+	<p>Within web design, it can be used to help layout designs and build your structure quickly, as well as provide an easy route for making your site responsive.</p>
+
+	<h2 id="what-does-it-look-like">What does it look like?</h2>
+
+	<h3 id="bricks">Bricks</h3>
+
+	<p>The best way to visualize a grid system is to think of bricks. Some bricks may be longer than others, but together they create a horizontal row that is 100%. The next row of bricks is on top of that row, creating a structure. In between the bricks is an equal amount of cement that gives it spacing and it’s distinctive look.</p>
+
+	<p><img src="http://i.imgur.com/qnoiBnUl.jpg" alt="brick wall" title=""></p>
+
+	<h3 id="newspaper">Newspaper</h3>
+
+	<p>Another example is a newspaper. There is equal distance between each paragraph, headline and section.</p>
+
+	<p><img src="http://i.imgur.com/nWvJRrD.jpg" alt="newspaper" title=""></p>
+
+	<h3 id="web-design-grid-system">Web Design Grid System</h3>
+
+	<p><img src="http://i.imgur.com/f2IfouCl.png" alt="12 Column Grid System" title=""></p>
+
+	<h2 id="terminology">Terminology</h2>
+
+	<p>As you work with Grid systems, you’ll come across certain terminology. In an effort to make working with a grid clearer, here’s some key terms.</p>
+
+	<h4 id="fixed">Fixed</h4>
+
+	<p>A definite width of each column. Not flexible.</p>
+
+	<h4 id="fluid">Fluid</h4>
+
+	<p>A relative width of each column, Flexible and responsive. Typically used with a container div that has a max-width.</p>
+
+	<h4 id="column">Column</h4>
+
+	<p>A vertical width that represents a section of content. Grid systems often use 12 or 16 columns. These exist within a row. Each row must contain a complete set of columns. (eg 1 row = 12 columns)</p>
+
+	<h4 id="row">Row</h4>
+
+	<p>A 100% width that spans horizontally across the page. A row is made up of a complete set of columns.</p>
+
+	<h4 id="gutter">Gutter</h4>
+
+	<p>The distance between each column. Allows equal margin between elements.</p>
+
+	<h4 id="presentational">Presentational</h4>
+
+	<p>The use of classes on elements to define width. The layout is defined within the HTML using classes in CSS.</p>
+
+	<pre><code>&lt;header class="col-12"&gt;&lt;/header&gt;
+	</code></pre>
+
+	<h4 id="non-presentational">Non-Presentational</h4>
+
+	<p>The use of css to define classes, leaving us with clean HTML markup. Best used with Sass, LESS and Stylus.</p>
+
+	<pre><code>&lt;header&gt;&lt;/header&gt;
+
+	header {
+	    @include column(12);
+	}
+	</code></pre>
+
+	<h2 id="understand-layout-with-a-grid-system">Understand layout with a Grid system</h2>
+
+	<p>In order to use a grid system, we visualize the number of columns we want an element to take up, and provide that information, instead of a setting. Take the example below</p>
+
+	<p><img src="http://i.imgur.com/ZUPVIk7l.png" alt="grid example" title=""></p>
+
+	<p>The site above consists of a header and footer that are both 100% width, then a section that floats next to an aside. To do this without a grid, we’d have to use floats that would need to be cleared and set a margin between the elements. Using a grid system, we can simply state how many columns each section should take up.</p>
+
+	<p><strong>Header</strong> = 12 Columns</p>
+
+	<p><strong>Section</strong> = 7 Columns</p>
+
+	<p><strong>Aside</strong> = 5 Columns</p>
+
+	<p><strong>(Section + Aside)</strong> = 12 Columns</p>
+
+	<p><strong>Footer</strong> = 12 Columns</p>
+
+	<h2 id="grid-systems">Grid systems</h2>
+
+	<p>There are many grid systems out there, and which one is the best for your project is up to you. There are many factors you need to account for including, fluid vs fixed, # of columns, presentational vs non-presentational.</p>
+
+	<p>Here is a collection of the most common used Grid systems.</p>
+
+	<ul>
+	<li>Bootstrap - <a href="http://getbootstrap.com/css/#grid">http://getbootstrap.com/css/#grid</a> (Fluid, Presentational, 12 Column)</li>
+	<li>Zurb Foundation - <a href="http://foundation.zurb.com/docs/components/grid.html">http://foundation.zurb.com/docs/components/grid.html</a> (Fluid, Presentational, 12 Column)</li>
+	<li>Bourbon Neat - <a href="http://neat.bourbon.io/">http://neat.bourbon.io/</a> (Fluid, Non-Presentational, 12 Column)</li>
+	<li>Semantic GS - <a href="http://semantic.gs/">http://semantic.gs/</a> (Fluid, Non-Presentational, 12 Column)</li>
+	<li>960 Grid - <a href="http://960.gs/">http://960.gs/</a> (Fixed, Presentational, 12 Column)</li>
+	<li>Profound Grid - <a href="http://www.profoundgrid.com/">http://www.profoundgrid.com/</a> (Fluid, Non-Presentational, 12 Column)</li>
+	<li>Responsive Grid System - <a href="http://www.responsivegridsystem.com/">http://www.responsivegridsystem.com/</a> (Fluid, Presentational, 12 Column)</li>
+	</ul>
+
+	<p>With all of these grid systems, you will need to download or link the needed CSS files. Moving forward in this lesson, let’s use Semantic GS because it requires no extra dependencies and doesn’t require us to litter our code with classes.</p>
+
+	<h2 id="semantic-gs">Semantic GS</h2>
+
+	<p><a href="http://drewminns.com/sandbox/testGrid.zip">Download the working file.</a></p>
+
+	<p>Semantic GS is a great system, because it is incredibly easy to use, maintain and modify. <br>
+	The system is available as LESS, SCSS or Stylus. For this example we’ll use SCSS. The working project file you downloaded includes a Grunt file that will allow us to work with SCSS directly from the command line.</p>
+
+	</div>
+
+</body>
+</html>
